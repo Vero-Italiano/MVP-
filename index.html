@@ -128,11 +128,31 @@
   .side-item{font-size:12.5px;color:var(--muted);line-height:1.5;background:var(--panel-bg);border-radius:10px;padding:10px 12px;}
   .side-item strong{display:block;color:var(--ink);font-size:12.5px;margin-bottom:3px;}
 
+  .wave-block{margin-bottom:16px;}
+  .wave-label{
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+    font-weight:700;margin:0 0 8px 4px;
+  }
+  .target-list{display:flex;flex-direction:column;gap:8px;}
+  .target-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+    padding:10px 16px;text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;
+    font-size:12.5px;transition:border-color .12s ease;
+  }
+  .target-card:hover{border-color:var(--green);}
+  .target-name{font-weight:700;color:var(--green);flex:0 0 auto;min-width:180px;}
+  .target-loc{color:var(--muted);flex:0 0 auto;white-space:nowrap;font-size:11.5px;}
+  .target-focus{color:var(--muted);flex:1 1 auto;text-align:right;font-size:12px;}
+
   footer{text-align:center;margin-top:36px;color:var(--muted);font-size:11.5px;line-height:1.6;}
 
   @media (max-width:900px){
     .row.cols2, .row.cols3, .row.cols4{grid-template-columns:1fr;}
     .controls{position:static;justify-content:center;margin-bottom:16px;}
+  }
+  @media (max-width:640px){
+    .target-card{flex-direction:column;align-items:flex-start;gap:4px;}
+    .target-focus{text-align:left;}
   }
 </style>
 </head>
@@ -190,6 +210,10 @@
       <div class="box risk"><h4><span class="icon blue">&#128200;</span><span data-i18n="l2.b3.h"></span></h4><p data-i18n="l2.b3.p"></p></div>
       <div class="box risk"><h4><span class="icon blue">&#128176;</span><span data-i18n="l2.b4.h"></span></h4><p data-i18n="l2.b4.p"></p></div>
     </div>
+    <div class="arrow-row" style="margin-top:10px;">&#8595;</div>
+    <div class="row cols1">
+      <div class="box risk"><h4><span class="icon blue">&#9881;</span><span data-i18n="l2.synth.h"></span></h4><p data-i18n="l2.synth.p"></p></div>
+    </div>
   </div>
 
   <div class="arrow-row">&#8595;</div>
@@ -204,6 +228,52 @@
     <div class="row cols2" style="margin-top:14px;">
       <div class="box later"><h4><span class="rank-badge">3</span><span data-i18n="l3.b3.h"></span></h4><p data-i18n="l3.b3.p"></p></div>
       <div class="box later"><h4><span class="rank-badge">4</span><span data-i18n="l3.b4.h"></span></h4><p data-i18n="l3.b4.p"></p></div>
+    </div>
+  </div>
+
+  <div class="arrow-row">&#8595;</div>
+
+  <div class="layer">
+    <div class="layer-label" data-i18n="l4t.label"></div>
+    <div class="layer-sub" data-i18n="l4t.sub"></div>
+
+    <div class="wave-block">
+      <div class="wave-label" data-i18n="wave1.label"></div>
+      <div class="target-list">
+        <a class="target-card" href="https://gustiamo.com" target="_blank" rel="noopener"><span class="target-name">Gustiamo</span><span class="target-loc">Bronx, NY</span><span class="target-focus" data-i18n="t.gustiamo.focus"></span></a>
+        <a class="target-card" href="https://forevercheese.com" target="_blank" rel="noopener"><span class="target-name">Forever Cheese</span><span class="target-loc">New York, NY</span><span class="target-focus" data-i18n="t.forevercheese.focus"></span></a>
+      </div>
+    </div>
+
+    <div class="wave-block">
+      <div class="wave-label" data-i18n="wave2.label"></div>
+      <div class="target-list">
+        <a class="target-card" href="https://maxcointernationalgroup.com" target="_blank" rel="noopener"><span class="target-name">MAXCO International</span><span class="target-loc">Ladera Ranch, CA</span><span class="target-focus" data-i18n="t.maxco.focus"></span></a>
+      </div>
+    </div>
+
+    <div class="wave-block">
+      <div class="wave-label" data-i18n="wave3.label"></div>
+      <div class="target-list">
+        <a class="target-card" href="https://manicaretti.com" target="_blank" rel="noopener"><span class="target-name">Manicaretti Italian Food Importers</span><span class="target-loc">Oakland, CA</span><span class="target-focus" data-i18n="t.manicaretti.focus"></span></a>
+        <a class="target-card" href="https://buonitalia.com" target="_blank" rel="noopener"><span class="target-name">Buon'Italia</span><span class="target-loc">New York, NY (Chelsea Market)</span><span class="target-focus" data-i18n="t.buonitalia.focus"></span></a>
+      </div>
+    </div>
+
+    <div class="wave-block">
+      <div class="wave-label" data-i18n="wave4.label"></div>
+      <div class="target-list">
+        <a class="target-card" href="https://viaswine.com" target="_blank" rel="noopener"><span class="target-name">Vias Imports</span><span class="target-loc">New York, NY</span><span class="target-focus" data-i18n="t.vias.focus"></span></a>
+        <a class="target-card" href="https://empsonusa.com" target="_blank" rel="noopener"><span class="target-name">Empson USA</span><span class="target-loc">Alexandria, VA</span><span class="target-focus" data-i18n="t.empson.focus"></span></a>
+      </div>
+    </div>
+
+    <div class="wave-block">
+      <div class="wave-label" data-i18n="wave5.label"></div>
+      <div class="target-list">
+        <a class="target-card" href="https://colavita.com" target="_blank" rel="noopener"><span class="target-name">Colavita USA</span><span class="target-loc">Edison, NJ</span><span class="target-focus" data-i18n="t.colavita.focus"></span></a>
+        <a class="target-card" href="https://atalantacorp.com" target="_blank" rel="noopener"><span class="target-name">Atalanta Corporation</span><span class="target-loc">Elizabeth, NJ</span><span class="target-focus" data-i18n="t.atalanta.focus"></span></a>
+      </div>
     </div>
   </div>
 
@@ -259,6 +329,8 @@ var translations = {
     "l2.b3.p": "Mutti first (a live, public anti-fraud narrative), with a two to three week decision window and no pause on direct outreach while waiting. If it stalls: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallel, each a fallback rather than a dependency.",
     "l2.b4.h": "Multi-source reconciliation is the product-level derisking",
     "l2.b4.p": "A single physical mark has already been defeated in this industry (the Prosciutto di Parma fire-brand forgery case). Cross-checking documents against independent satellite/agronomic evidence, and at the premium tier, lab testing, means a counterfeiter has to beat multiple independent streams at once, not just one.",
+    "l2.synth.h": "Reuse VeriPura Core, don't rebuild",
+    "l2.synth.p": "Several pieces the concierge MVP currently plans to do by hand, lab accreditation checking, tamper-evident receipts, registry cross-checks, plot geolocation, already exist as tested VeriPura Core modules built for a different compliance use case. This doesn't remove the need to validate they fit Vero Italiano's specific requirements, but it changes the automation timeline: the gap between the manual concierge pilot and a real automated pipeline may be narrower than originally scoped.",
 
     "l3.label": "Who we target, and in what order",
     "l3.sub": "Ranked by who is realistically easiest to close first, not just who has the most at stake. Groups 1 and 2 are the current focus; 3 and 4 come later.",
@@ -270,6 +342,23 @@ var translations = {
     "l3.b3.p": "Competitors of companies already caught (a San Marzano importer competing with Cento, a retailer competing with Coles, Aldi or Woolworths). They can make a proactive positive claim right when their category is under scrutiny, without admitting their own exposure. Easier than approaching the accused directly, but a later-stage move once there is a live customer to point to.",
     "l3.b4.h": "Companies actually named in an active scandal",
     "l3.b4.p": "Cento, Simplot/Leggo's, Coles, Aldi. Most to lose narratively but poor first customers: their current posture is to dispute and deny, so adopting third-party verification now would read as an admission. Approach later, from a position of independent traction, not \"you got caught.\"",
+
+    "l4t.label": "US import target list (first pass)",
+    "l4t.sub": "Grouped by suggested outreach wave, fastest-fit category first. Compiled from public search; treat every detail as needing one more direct check before outreach. Company names link to their public websites.",
+    "wave1.label": "Wave 1: sharpest category fit, fast decision-makers",
+    "wave2.label": "Wave 2: DOP/IGP-first positioning",
+    "wave3.label": "Wave 3: strong authenticity-first brand identity",
+    "wave4.label": "Wave 4: wine, once a food-category proof point exists",
+    "wave5.label": "Wave 5: larger organizations, longer sales cycle",
+    "t.gustiamo.focus": "Tomatoes, olive oil, curated Italian pantry staples",
+    "t.forevercheese.focus": "Artisan cheese (Italy, Spain, Portugal, Croatia)",
+    "t.maxco.focus": "DOP/IGP-focused Italian fine food",
+    "t.manicaretti.focus": "Olive oil, vinegar, pasta, rice, preserves",
+    "t.buonitalia.focus": "Broad Italian specialty foods, retail and wholesale",
+    "t.vias.focus": "Italian wine portfolio",
+    "t.empson.focus": "Italian wine and spirits",
+    "t.colavita.focus": "Olive oil, pasta, vinegars, pasta sauces",
+    "t.atalanta.focus": "Broad import portfolio including Italian hard and soft-ripened cheeses",
 
     "side.title": "Why willingness to pay is the real question here",
     "side.i1.h": "Pricing anchor",
@@ -320,6 +409,8 @@ var translations = {
     "l2.b3.p": "Prima Mutti (una narrativa anti-frode gia pubblica e attiva), con una finestra decisionale di due-tre settimane e nessuna pausa nel contatto diretto durante l'attesa. Se si blocca: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallelo, ciascuno un'alternativa e non una dipendenza.",
     "l2.b4.h": "La riconciliazione multi-fonte e la mitigazione a livello di prodotto",
     "l2.b4.p": "Un singolo marchio fisico e gia stato aggirato in questo settore (il caso di falsificazione del marchio a fuoco del Prosciutto di Parma). Incrociare i documenti con evidenze satellitari/agronomiche indipendenti, e al livello premium con test di laboratorio, significa che un contraffattore deve battere piu fonti indipendenti insieme, non solo una.",
+    "l2.synth.h": "Riutilizzare VeriPura Core, non ricostruire",
+    "l2.synth.p": "Diversi elementi che il MVP concierge prevede attualmente di gestire manualmente, verifica dell'accreditamento dei laboratori, ricevute a prova di manomissione, verifiche incrociate dei registri, geolocalizzazione degli appezzamenti, esistono gia come moduli VeriPura Core testati, costruiti per un caso d'uso di conformita diverso. Questo non elimina la necessita di validare che si adattino ai requisiti specifici di Vero Italiano, ma cambia la tempistica dell'automazione: il divario tra il pilota concierge manuale e una vera pipeline automatizzata potrebbe essere piu stretto di quanto originariamente previsto.",
 
     "l3.label": "Chi puntiamo, e in che ordine",
     "l3.sub": "Classificati in base a chi e realisticamente piu facile da chiudere per primo, non solo a chi ha piu in gioco. I gruppi 1 e 2 sono il focus attuale; 3 e 4 arrivano dopo.",
@@ -331,6 +422,23 @@ var translations = {
     "l3.b3.p": "Concorrenti di aziende gia colte in fallo (un importatore di San Marzano in concorrenza con Cento, un rivenditore in concorrenza con Coles, Aldi o Woolworths). Possono fare un'affermazione positiva e proattiva proprio mentre la loro categoria e sotto esame, senza ammettere la propria esposizione. Piu facile che avvicinare direttamente gli accusati, ma una mossa di fase successiva una volta che c'e un cliente reale a cui fare riferimento.",
     "l3.b4.h": "Aziende effettivamente nominate in uno scandalo attivo",
     "l3.b4.p": "Cento, Simplot/Leggo's, Coles, Aldi. Le piu esposte a livello narrativo ma pessimi primi clienti: la loro posizione attuale e contestare e negare, quindi adottare ora una verifica di terze parti suonerebbe come un'ammissione. Avvicinarle piu avanti, da una posizione di trazione indipendente, non \"vi hanno scoperti.\"",
+
+    "l4t.label": "Elenco obiettivi di importazione USA (prima bozza)",
+    "l4t.sub": "Raggruppato per ondata di contatto suggerita, prima la categoria con il fit piu rapido. Compilato da ricerche pubbliche; trattare ogni dettaglio come da verificare direttamente prima del contatto. I nomi delle aziende rimandano ai loro siti pubblici.",
+    "wave1.label": "Ondata 1: fit di categoria piu netto, decisori rapidi",
+    "wave2.label": "Ondata 2: posizionamento diretto su DOP/IGP",
+    "wave3.label": "Ondata 3: forte identita di marca basata sull'autenticita",
+    "wave4.label": "Ondata 4: vino, una volta ottenuta una prova nel settore alimentare",
+    "wave5.label": "Ondata 5: organizzazioni piu grandi, ciclo di vendita piu lungo",
+    "t.gustiamo.focus": "Pomodori, olio d'oliva, prodotti italiani da dispensa curati",
+    "t.forevercheese.focus": "Formaggi artigianali (Italia, Spagna, Portogallo, Croazia)",
+    "t.maxco.focus": "Prodotti alimentari italiani incentrati su DOP/IGP",
+    "t.manicaretti.focus": "Olio d'oliva, aceto, pasta, riso, conserve",
+    "t.buonitalia.focus": "Ampia gamma di specialita italiane, vendita al dettaglio e all'ingrosso",
+    "t.vias.focus": "Portafoglio di vini italiani",
+    "t.empson.focus": "Vini e distillati italiani",
+    "t.colavita.focus": "Olio d'oliva, pasta, aceti, sughi per pasta",
+    "t.atalanta.focus": "Ampio portafoglio di importazioni incl. formaggi italiani duri e a pasta molle",
 
     "side.title": "Perche la disponibilita a pagare e la vera domanda qui",
     "side.i1.h": "Ancoraggio del prezzo",
