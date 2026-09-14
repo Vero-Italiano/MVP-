@@ -175,7 +175,7 @@
     <div class="layer-label" data-i18n="l0.label"></div>
     <div class="row cols3">
       <div class="box principle"><h4><span class="icon gray">&#127919;</span><span data-i18n="l0.b1.h"></span></h4><p data-i18n="l0.b1.p"></p></div>
-      <div class="box principle"><h4><span class="icon gray">&#129309;</span><span data-i18n="l0.b2.h"></span></h4><p data-i18n="l0.b2.p"></p></div>
+      <div class="box principle"><h4><span class="icon gray">&#9881;</span><span data-i18n="l0.b2.h"></span></h4><p data-i18n="l0.b2.p"></p></div>
       <div class="box principle"><h4><span class="icon gray">&#128260;</span><span data-i18n="l0.b3.h"></span></h4><p data-i18n="l0.b3.p"></p></div>
     </div>
   </div>
@@ -185,15 +185,17 @@
   <div class="layer">
     <div class="layer-label" data-i18n="l1.label"></div>
     <div class="layer-sub" data-i18n="l1.sub"></div>
-    <div class="row cols3">
+    <div class="row cols4">
       <div class="box step"><h4><span class="icon green">1</span><span data-i18n="l1.b1.h"></span></h4><p data-i18n="l1.b1.p"></p></div>
       <div class="box step"><h4><span class="icon green">2</span><span data-i18n="l1.b2.h"></span></h4><p data-i18n="l1.b2.p"></p></div>
       <div class="box step"><h4><span class="icon green">3</span><span data-i18n="l1.b3.h"></span></h4><p data-i18n="l1.b3.p"></p></div>
-    </div>
-    <div class="row cols3" style="margin-top:14px;">
       <div class="box step"><h4><span class="icon green">4</span><span data-i18n="l1.b4.h"></span></h4><p data-i18n="l1.b4.p"></p></div>
+    </div>
+    <div class="row cols4" style="margin-top:14px;">
       <div class="box step"><h4><span class="icon green">5</span><span data-i18n="l1.b5.h"></span></h4><p data-i18n="l1.b5.p"></p></div>
       <div class="box step"><h4><span class="icon green">6</span><span data-i18n="l1.b6.h"></span></h4><p data-i18n="l1.b6.p"></p></div>
+      <div class="box step"><h4><span class="icon green">7</span><span data-i18n="l1.b7.h"></span></h4><p data-i18n="l1.b7.p"></p></div>
+      <div class="box step"><h4><span class="icon green">8</span><span data-i18n="l1.b8.h"></span></h4><p data-i18n="l1.b8.p"></p></div>
     </div>
   </div>
 
@@ -202,13 +204,11 @@
   <div class="layer">
     <div class="layer-label" data-i18n="l2.label"></div>
     <div class="layer-sub" data-i18n="l2.sub"></div>
-    <div class="row cols2">
+    <div class="row cols4">
       <div class="box risk"><h4><span class="icon blue">&#128101;</span><span data-i18n="l2.b1.h"></span></h4><p data-i18n="l2.b1.p"></p></div>
       <div class="box risk"><h4><span class="icon blue">&#127942;</span><span data-i18n="l2.b2.h"></span></h4><p data-i18n="l2.b2.p"></p></div>
-    </div>
-    <div class="row cols2" style="margin-top:14px;">
-      <div class="box risk"><h4><span class="icon blue">&#128200;</span><span data-i18n="l2.b3.h"></span></h4><p data-i18n="l2.b3.p"></p></div>
-      <div class="box risk"><h4><span class="icon blue">&#128176;</span><span data-i18n="l2.b4.h"></span></h4><p data-i18n="l2.b4.p"></p></div>
+      <div class="box risk"><h4><span class="icon blue">&#128200;</span><span data-i18n="l0.b4.h"></span></h4><p data-i18n="l0.b4.p"></p></div>
+      <div class="box risk"><h4><span class="icon blue">&#9881;</span><span data-i18n="l0.b2.h"></span></h4><p data-i18n="l0.b2.p"></p></div>
     </div>
     <div class="arrow-row" style="margin-top:10px;">&#8595;</div>
     <div class="row cols1">
@@ -294,30 +294,36 @@
 var translations = {
   en: {
     h1: "Vero Italiano - MVP &amp; Go-to-Market Strategy",
-    subtitle: "How we are thinking about proving this out with the least amount of engineering and the least amount of risk: the narrowest thing that can validate real willingness to pay, one concierge pilot at a time.",
+    subtitle: "How we are thinking about proving this out with the least amount of engineering and the least amount of risk: the narrowest thing that can validate real willingness to pay, one pilot at a time.",
 
-    "l0.label": "How we focus (lean startup)",
+    "l0.label": "How we focus",
     "l0.b1.h": "Narrowest possible slice",
     "l0.b1.p": "One product category with the richest fraud evidence already public (San Marzano tomatoes or DOP olive oil), one importer, one or two of their producers. Not the whole platform, not every category, not every evidence stream.",
-    "l0.b2.h": "Concierge MVP, not automation",
-    "l0.b2.p": "Where the pipeline is not yet built (OCR, satellite modeling), we do the reconciliation manually behind the scenes. The importer experiences a real answer, flagged or confirmed, not whether a human or a model produced it.",
+    "l0.b2.h": "Leverage existing technology",
+    "l0.b2.p": "Leverage VeriPura Core, which already has a working lab accreditation engine, chain-of-custody matching and registry patterns, and other existing tools, rather than rebuilding what already works. Augment with a human in the loop wherever real gaps remain (yield modeling, the spectrum grade itself). Either way the importer experiences a real answer, flagged or confirmed, not which parts were automated.",
     "l0.b3.h": "Validate demand before building",
     "l0.b3.p": "The point of the pilot is to test willingness to pay and real pricing before any further engineering investment in the harder automation. Learn, then build, not the other way around.",
+    "l0.b4.h": "Leverage existing Novagria relationships",
+    "l0.b4.p": "Mutti first (a live, public anti-fraud narrative), with a two to three week decision window and no pause on direct outreach while waiting. If it stalls: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallel, each a fallback rather than a dependency.",
 
     "l1.label": "MVP process: path to the first paying customer",
-    "l1.sub": "The sequence, in order. Steps 2 and 3 run in parallel so the plan is never blocked on a single relationship.",
-    "l1.b1.h": "Pick the category and outreach list",
-    "l1.b1.p": "San Marzano tomatoes or DOP olive oil, given the depth of existing public fraud documentation to use in sales conversations. Compile three to five specialty US DOP/IGP importers to approach.",
-    "l1.b2.h": "Offer a free or discounted pilot",
-    "l1.b2.p": "One flagship SKU, certified at no or low cost, in exchange for being a named reference and case study once the pilot succeeds.",
-    "l1.b3.h": "Run the pilot as concierge",
-    "l1.b3.p": "Manually validate documents, manually cross-check the DOP/IGP registry, manually pull whatever satellite/agronomic signal is feasible. Present a real certification level and a real discrepancy check.",
-    "l1.b4.h": "Open one consortium conversation",
-    "l1.b4.p": "Parmigiano Reggiano or San Marzano, framed as \"we would like your input on the validation criteria,\" not a sales pitch. A credibility relationship, not a revenue one, at this stage.",
-    "l1.b5.h": "Convert to paid, set real pricing",
-    "l1.b5.p": "Once the certification has clearly demonstrated value, use the importer's actual reaction to set the price point, anchored against what they currently pay for third-party inspection (SGS, Bureau Veritas-style audits).",
-    "l1.b6.h": "Use proof points for the next round",
-    "l1.b6.p": "The first paying customer and the consortium relationship become the case for approaching the next, harder segment, a live customer to point to, not just a framework document.",
+    "l1.sub": "The sequence, in order. Steps 5 and 6 run in parallel so the plan is never blocked on a single relationship.",
+    "l1.b1.h": "Talk to the market first",
+    "l1.b1.p": "Informal discovery conversations with target-list importers before building or pricing anything: what would make them trust an origin claim, what they currently pay for verification, where they've been burned before.",
+    "l1.b2.h": "Show a working prototype, not a pitch",
+    "l1.b2.p": "Most people can't react to an abstract idea. Build a simple vibe-coded model that demonstrates the core functionality, let prospects click through it, and let their reaction shape the real MVP scope before any further engineering commitment.",
+    "l1.b3.h": "Pick the category and outreach list",
+    "l1.b3.p": "San Marzano tomatoes or DOP olive oil, given the depth of existing public fraud documentation to use in sales conversations. Compile three to five specialty US DOP/IGP importers to approach, informed by what the market conversations surfaced.",
+    "l1.b4.h": "Offer a free or discounted pilot",
+    "l1.b4.p": "One flagship SKU, certified at no or low cost, in exchange for being a named reference and case study once the pilot succeeds.",
+    "l1.b5.h": "Run the pilot",
+    "l1.b5.p": "Point at VeriPura Core modules where they already fit (lab accreditation, chain-of-custody matching), and manually validate the rest, the DOP/IGP registry cross-check, whatever satellite/agronomic signal is feasible. Present a real certification level and a real discrepancy check.",
+    "l1.b6.h": "Open one consortium conversation",
+    "l1.b6.p": "Parmigiano Reggiano or San Marzano, framed as \"we would like your input on the validation criteria,\" not a sales pitch. A credibility relationship, not a revenue one, at this stage.",
+    "l1.b7.h": "Convert to paid, set real pricing",
+    "l1.b7.p": "Once the certification has clearly demonstrated value, use the importer's actual reaction to set the price point, anchored against what they currently pay for third-party inspection (SGS, Bureau Veritas-style audits).",
+    "l1.b8.h": "Use proof points for the next round",
+    "l1.b8.p": "The first paying customer and the consortium relationship become the case for approaching the next, harder segment, a live customer to point to, not just a framework document.",
 
     "l2.label": "How we de-risk it",
     "l2.sub": "No single point of failure: the direct-outreach path never depends on any one warm intro or channel landing.",
@@ -325,12 +331,8 @@ var translations = {
     "l2.b1.p": "Approaching specialty US DOP/IGP importers directly does not require any investor introduction to work, and proceeds regardless of how the warm-intro channel lands.",
     "l2.b2.h": "Credibility track runs alongside, not instead",
     "l2.b2.p": "The consortium conversation is a separate, parallel track from the paid pilot. It de-risks the sales narrative (\"developed in coordination with X\") without being on the critical path to revenue.",
-    "l2.b3.h": "Novagria is a ladder, not one bet",
-    "l2.b3.p": "Mutti first (a live, public anti-fraud narrative), with a two to three week decision window and no pause on direct outreach while waiting. If it stalls: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallel, each a fallback rather than a dependency.",
-    "l2.b4.h": "Multi-source reconciliation is the product-level derisking",
-    "l2.b4.p": "A single physical mark has already been defeated in this industry (the Prosciutto di Parma fire-brand forgery case). Cross-checking documents against independent satellite/agronomic evidence, and at the premium tier, lab testing, means a counterfeiter has to beat multiple independent streams at once, not just one.",
     "l2.synth.h": "Reuse VeriPura Core, don't rebuild",
-    "l2.synth.p": "Several pieces the concierge MVP currently plans to do by hand, lab accreditation checking, tamper-evident receipts, registry cross-checks, plot geolocation, already exist as tested VeriPura Core modules built for a different compliance use case. This doesn't remove the need to validate they fit Vero Italiano's specific requirements, but it changes the automation timeline: the gap between the manual concierge pilot and a real automated pipeline may be narrower than originally scoped.",
+    "l2.synth.p": "Several pieces the MVP currently plans to do by hand, lab accreditation checking, tamper-evident receipts, registry cross-checks, plot geolocation, already exist as tested VeriPura Core modules built for a different compliance use case. This doesn't remove the need to validate they fit Vero Italiano's specific requirements, but it changes the automation timeline: the gap between the manual pilot and a real automated pipeline may be narrower than originally scoped.",
 
     "l3.label": "Who we target, and in what order",
     "l3.sub": "Ranked by who is realistically easiest to close first, not just who has the most at stake. Groups 1 and 2 are the current focus; 3 and 4 come later.",
@@ -374,30 +376,36 @@ var translations = {
   },
   it: {
     h1: "Vero Italiano - Strategia MVP e Go-to-Market",
-    subtitle: "Come stiamo pensando di dimostrare tutto questo con il minimo sforzo tecnico e il minimo rischio: la cosa piu ristretta possibile che possa validare una reale disponibilita a pagare, un pilota concierge alla volta.",
+    subtitle: "Come stiamo pensando di dimostrare tutto questo con il minimo sforzo tecnico e il minimo rischio: la cosa piu ristretta possibile che possa validare una reale disponibilita a pagare, un pilota alla volta.",
 
-    "l0.label": "Come ci concentriamo (lean startup)",
+    "l0.label": "Come ci concentriamo",
     "l0.b1.h": "La fetta piu stretta possibile",
     "l0.b1.p": "Una categoria di prodotto con la base di evidenze di frode gia piu ricca e pubblica (pomodori San Marzano o olio DOP), un importatore, uno o due dei loro produttori. Non l'intera piattaforma, non ogni categoria, non ogni fonte di evidenza.",
-    "l0.b2.h": "MVP concierge, non automazione",
-    "l0.b2.p": "Dove la pipeline non e ancora costruita (OCR, modellazione satellitare), la riconciliazione viene fatta manualmente dietro le quinte. L'importatore riceve una risposta reale, segnalata o confermata, senza sapere se e stata prodotta da una persona o da un modello.",
+    "l0.b2.h": "Sfruttare la tecnologia esistente",
+    "l0.b2.p": "Sfruttare VeriPura Core, che ha gia un motore di accreditamento dei laboratori funzionante, la verifica della catena di custodia e schemi di registro, oltre ad altri strumenti esistenti, invece di ricostruire cio che gia funziona. Integrare con un intervento umano dove restano vere lacune (modellazione della resa, il grado sullo spettro stesso). In entrambi i casi l'importatore riceve una risposta reale, segnalata o confermata, senza sapere quali parti sono automatizzate.",
     "l0.b3.h": "Validare la domanda prima di costruire",
     "l0.b3.p": "Lo scopo del pilota e testare la disponibilita a pagare e un prezzo reale prima di ulteriori investimenti tecnici nell'automazione piu complessa. Prima imparare, poi costruire, non il contrario.",
+    "l0.b4.h": "Sfruttare le relazioni Novagria esistenti",
+    "l0.b4.p": "Prima Mutti (una narrativa anti-frode gia pubblica e attiva), con una finestra decisionale di due-tre settimane e nessuna pausa nel contatto diretto durante l'attesa. Se si blocca: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallelo, ciascuno un'alternativa e non una dipendenza.",
 
     "l1.label": "Processo MVP: il percorso verso il primo cliente pagante",
-    "l1.sub": "La sequenza, in ordine. I passi 2 e 3 procedono in parallelo cosi che il piano non dipenda mai da una sola relazione.",
-    "l1.b1.h": "Scegliere la categoria e la lista di contatti",
-    "l1.b1.p": "Pomodori San Marzano o olio DOP, data la profondita della documentazione pubblica sulle frodi gia disponibile per le conversazioni di vendita. Compilare tre-cinque importatori specializzati DOP/IGP negli Stati Uniti da contattare.",
-    "l1.b2.h": "Offrire un pilota gratuito o scontato",
-    "l1.b2.p": "Una SKU di punta, certificata a costo nullo o basso, in cambio di essere citati come riferimento e caso studio una volta che il pilota ha successo.",
-    "l1.b3.h": "Condurre il pilota in modalita concierge",
-    "l1.b3.p": "Validare manualmente i documenti, verificare manualmente il registro DOP/IGP, raccogliere manualmente qualsiasi segnale satellitare/agronomico fattibile. Presentare un livello di certificazione reale e una verifica reale delle discrepanze.",
-    "l1.b4.h": "Avviare una conversazione con un consorzio",
-    "l1.b4.p": "Parmigiano Reggiano o San Marzano, presentata come \"vorremmo il vostro contributo sui criteri di validazione,\" non come proposta di vendita. In questa fase e una relazione di credibilita, non di fatturato.",
-    "l1.b5.h": "Convertire in cliente pagante, fissare il prezzo reale",
-    "l1.b5.p": "Una volta che la certificazione ha chiaramente dimostrato valore, usare la reazione reale dell'importatore per fissare il prezzo, ancorandolo a quanto gia pagano per ispezioni di terze parti (audit in stile SGS, Bureau Veritas).",
-    "l1.b6.h": "Usare i risultati come prova per il round successivo",
-    "l1.b6.p": "Il primo cliente pagante e la relazione con il consorzio diventano l'argomento per avvicinare il segmento successivo, piu difficile: un cliente reale a cui fare riferimento, non solo un documento di framework.",
+    "l1.sub": "La sequenza, in ordine. I passi 5 e 6 procedono in parallelo cosi che il piano non dipenda mai da una sola relazione.",
+    "l1.b1.h": "Parlare prima con il mercato",
+    "l1.b1.p": "Conversazioni informali di scoperta con gli importatori della lista obiettivi prima di costruire o fissare un prezzo per qualsiasi cosa: cosa li farebbe fidare di una dichiarazione di origine, cosa pagano gia per la verifica, dove sono gia stati scottati.",
+    "l1.b2.h": "Mostrare un prototipo funzionante, non una proposta",
+    "l1.b2.p": "La maggior parte delle persone non riesce a reagire a un'idea astratta. Costruire un semplice modello vibe-coded che dimostri la funzionalita principale, lasciare che i prospect lo esplorino direttamente, e lasciare che la loro reazione definisca il reale ambito del MVP prima di ulteriori impegni tecnici.",
+    "l1.b3.h": "Scegliere la categoria e la lista di contatti",
+    "l1.b3.p": "Pomodori San Marzano o olio DOP, data la profondita della documentazione pubblica sulle frodi gia disponibile per le conversazioni di vendita. Compilare tre-cinque importatori specializzati DOP/IGP negli Stati Uniti da contattare, informati da quanto emerso dalle conversazioni di mercato.",
+    "l1.b4.h": "Offrire un pilota gratuito o scontato",
+    "l1.b4.p": "Una SKU di punta, certificata a costo nullo o basso, in cambio di essere citati come riferimento e caso studio una volta che il pilota ha successo.",
+    "l1.b5.h": "Condurre il pilota",
+    "l1.b5.p": "Utilizzare i moduli VeriPura Core dove gia si adattano (accreditamento dei laboratori, verifica della catena di custodia), e validare manualmente il resto, la verifica incrociata del registro DOP/IGP, qualsiasi segnale satellitare/agronomico fattibile. Presentare un livello di certificazione reale e una verifica reale delle discrepanze.",
+    "l1.b6.h": "Avviare una conversazione con un consorzio",
+    "l1.b6.p": "Parmigiano Reggiano o San Marzano, presentata come \"vorremmo il vostro contributo sui criteri di validazione,\" non come proposta di vendita. In questa fase e una relazione di credibilita, non di fatturato.",
+    "l1.b7.h": "Convertire in cliente pagante, fissare il prezzo reale",
+    "l1.b7.p": "Una volta che la certificazione ha chiaramente dimostrato valore, usare la reazione reale dell'importatore per fissare il prezzo, ancorandolo a quanto gia pagano per ispezioni di terze parti (audit in stile SGS, Bureau Veritas).",
+    "l1.b8.h": "Usare i risultati come prova per il round successivo",
+    "l1.b8.p": "Il primo cliente pagante e la relazione con il consorzio diventano l'argomento per avvicinare il segmento successivo, piu difficile: un cliente reale a cui fare riferimento, non solo un documento di framework.",
 
     "l2.label": "Come mitighiamo il rischio",
     "l2.sub": "Nessun punto singolo di fallimento: il percorso di contatto diretto non dipende mai da una singola presentazione o canale.",
@@ -405,12 +413,8 @@ var translations = {
     "l2.b1.p": "Contattare direttamente gli importatori specializzati DOP/IGP negli Stati Uniti non richiede alcuna presentazione da investitori per funzionare, e procede indipendentemente dall'esito del canale di presentazione.",
     "l2.b2.h": "Il percorso di credibilita corre in parallelo, non in sostituzione",
     "l2.b2.p": "La conversazione con il consorzio e un binario separato e parallelo rispetto al pilota pagante. Riduce il rischio della narrativa di vendita (\"sviluppato in coordinamento con X\") senza essere sul percorso critico verso il fatturato.",
-    "l2.b3.h": "Novagria e una scala, non una singola scommessa",
-    "l2.b3.p": "Prima Mutti (una narrativa anti-frode gia pubblica e attiva), con una finestra decisionale di due-tre settimane e nessuna pausa nel contatto diretto durante l'attesa. Se si blocca: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallelo, ciascuno un'alternativa e non una dipendenza.",
-    "l2.b4.h": "La riconciliazione multi-fonte e la mitigazione a livello di prodotto",
-    "l2.b4.p": "Un singolo marchio fisico e gia stato aggirato in questo settore (il caso di falsificazione del marchio a fuoco del Prosciutto di Parma). Incrociare i documenti con evidenze satellitari/agronomiche indipendenti, e al livello premium con test di laboratorio, significa che un contraffattore deve battere piu fonti indipendenti insieme, non solo una.",
     "l2.synth.h": "Riutilizzare VeriPura Core, non ricostruire",
-    "l2.synth.p": "Diversi elementi che il MVP concierge prevede attualmente di gestire manualmente, verifica dell'accreditamento dei laboratori, ricevute a prova di manomissione, verifiche incrociate dei registri, geolocalizzazione degli appezzamenti, esistono gia come moduli VeriPura Core testati, costruiti per un caso d'uso di conformita diverso. Questo non elimina la necessita di validare che si adattino ai requisiti specifici di Vero Italiano, ma cambia la tempistica dell'automazione: il divario tra il pilota concierge manuale e una vera pipeline automatizzata potrebbe essere piu stretto di quanto originariamente previsto.",
+    "l2.synth.p": "Diversi elementi che il MVP prevede attualmente di gestire manualmente, verifica dell'accreditamento dei laboratori, ricevute a prova di manomissione, verifiche incrociate dei registri, geolocalizzazione degli appezzamenti, esistono gia come moduli VeriPura Core testati, costruiti per un caso d'uso di conformita diverso. Questo non elimina la necessita di validare che si adattino ai requisiti specifici di Vero Italiano, ma cambia la tempistica dell'automazione: il divario tra il pilota manuale e una vera pipeline automatizzata potrebbe essere piu stretto di quanto originariamente previsto.",
 
     "l3.label": "Chi puntiamo, e in che ordine",
     "l3.sub": "Classificati in base a chi e realisticamente piu facile da chiudere per primo, non solo a chi ha piu in gioco. I gruppi 1 e 2 sono il focus attuale; 3 e 4 arrivano dopo.",
