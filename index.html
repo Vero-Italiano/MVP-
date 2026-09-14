@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vero Italiano - MVP &amp; Go-to-Market Strategy</title>
+<style>
+  :root{
+    --bg:#faf7f2;
+    --card-bg:#ffffff;
+    --ink:#1f2a24;
+    --muted:#6b7570;
+    --line:#e4ded3;
+    --green:#2f5d3a;
+    --green-light:#e7f0e5;
+    --blue:#2c6b8a;
+    --blue-light:#e7f0f5;
+    --gold:#b8862b;
+    --gold-light:#f8efdb;
+    --red-it:#b7312c;
+    --red-light:#fbe7e6;
+    --panel-bg:#f1efe9;
+    --engine-grad-1:#faf6ee;
+    --engine-grad-2:#f5f0e4;
+    --shadow:0 4px 18px rgba(31,42,36,0.08);
+  }
+  html[data-theme="dark"]{
+    --bg:#14201a;
+    --card-bg:#1c2b23;
+    --ink:#eef2ee;
+    --muted:#9fb0a5;
+    --line:#2e4136;
+    --green:#4f9464;
+    --green-light:#22362a;
+    --blue:#4a92b8;
+    --blue-light:#1d323d;
+    --gold:#d9a94b;
+    --gold-light:#3a2f18;
+    --red-it:#e2665f;
+    --red-light:#3a2220;
+    --panel-bg:#233229;
+    --engine-grad-1:#2b3a2c;
+    --engine-grad-2:#25321f;
+    --shadow:0 4px 18px rgba(0,0,0,0.35);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    padding:40px 24px 80px;
+    transition:background .15s ease, color .15s ease;
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+  header{text-align:center;margin-bottom:28px;position:relative;}
+  .controls{
+    position:absolute;top:0;right:0;display:flex;gap:8px;align-items:center;
+  }
+  .lang-switch{
+    display:flex;gap:4px;background:var(--card-bg);border:1px solid var(--line);
+    border-radius:20px;padding:3px;box-shadow:var(--shadow);
+  }
+  .lang-switch button{
+    border:none;background:transparent;padding:6px 14px;border-radius:16px;font-size:12.5px;font-weight:700;
+    cursor:pointer;color:var(--muted);letter-spacing:.03em;
+  }
+  .lang-switch button.active{background:var(--green);color:#fff;}
+  .theme-toggle{
+    border:1px solid var(--line);background:var(--card-bg);border-radius:20px;padding:7px 12px;
+    font-size:13px;cursor:pointer;box-shadow:var(--shadow);color:var(--ink);
+  }
+  .flagbar{height:4px;width:80px;margin:0 auto 20px;background:linear-gradient(90deg,var(--green) 0 33%, #fff 33% 66%, var(--red-it) 66% 100%);border-radius:2px;}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:-0.01em;}
+  .subtitle{color:var(--muted);font-size:14.5px;max-width:760px;margin:0 auto;line-height:1.5;}
+
+  .layer{margin-bottom:8px;}
+  .layer-label{
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+    margin:0 0 8px 4px;font-weight:700;
+  }
+  .layer-sub{font-size:12.5px;color:var(--muted);margin:-4px 0 12px 4px;line-height:1.5;max-width:820px;}
+  .row{display:grid;gap:14px;margin-bottom:6px;}
+  .row.cols1{grid-template-columns:1fr;}
+  .row.cols2{grid-template-columns:1fr 1fr;}
+  .row.cols3{grid-template-columns:1fr 1fr 1fr;}
+  .row.cols4{grid-template-columns:1fr 1fr 1fr 1fr;}
+
+  .box{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:12px;
+    box-shadow:var(--shadow);padding:14px 16px;font-size:12.5px;line-height:1.5;
+  }
+  .box h4{margin:0 0 6px;font-size:13px;display:flex;align-items:center;gap:7px;}
+  .box p{margin:0;color:var(--muted);}
+  .box ul{margin:6px 0 0;padding-left:16px;color:var(--muted);}
+  .box ul li{margin-bottom:2px;}
+
+  .box.principle{background:var(--panel-bg);border-style:dashed;}
+  .box.step{border-left:4px solid var(--green);}
+  .box.risk{border-left:4px solid var(--blue);}
+  .box.target{border-left:4px solid var(--gold);background:linear-gradient(135deg,var(--engine-grad-1),var(--engine-grad-2));}
+  .box.later{border-left:4px solid var(--red-it);opacity:.82;}
+
+  .icon{
+    width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:11px;color:#fff;flex-shrink:0;
+  }
+  .icon.green{background:var(--green);}
+  .icon.blue{background:var(--blue);}
+  .icon.gold{background:var(--gold);}
+  .icon.red{background:var(--red-it);}
+  .icon.gray{background:#8a8f89;}
+
+  .rank-badge{
+    display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;
+    background:var(--gold);color:#fff;font-size:11px;font-weight:700;flex-shrink:0;
+  }
+  .target .rank-badge{background:var(--gold);}
+  .later .rank-badge{background:var(--red-it);}
+
+  .arrow-row{display:flex;justify-content:center;color:var(--muted);font-size:20px;margin:2px 0;}
+
+  .side-note{
+    margin-top:28px;background:var(--card-bg);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);padding:18px 22px;
+  }
+  .side-note h3{margin:0 0 10px;font-size:14.5px;}
+  .side-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+  .side-item{font-size:12.5px;color:var(--muted);line-height:1.5;background:var(--panel-bg);border-radius:10px;padding:10px 12px;}
+  .side-item strong{display:block;color:var(--ink);font-size:12.5px;margin-bottom:3px;}
+
+  footer{text-align:center;margin-top:36px;color:var(--muted);font-size:11.5px;line-height:1.6;}
+
+  @media (max-width:900px){
+    .row.cols2, .row.cols3, .row.cols4{grid-template-columns:1fr;}
+    .controls{position:static;justify-content:center;margin-bottom:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="controls">
+      <div class="lang-switch">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-it" onclick="setLang('it')">IT</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">&#127769;</button>
+    </div>
+    <div class="flagbar"></div>
+    <h1 data-i18n="h1"></h1>
+    <p class="subtitle" data-i18n="subtitle"></p>
+  </header>
+
+  <div class="layer">
+    <div class="layer-label" data-i18n="l0.label"></div>
+    <div class="row cols3">
+      <div class="box principle"><h4><span class="icon gray">&#127919;</span><span data-i18n="l0.b1.h"></span></h4><p data-i18n="l0.b1.p"></p></div>
+      <div class="box principle"><h4><span class="icon gray">&#129309;</span><span data-i18n="l0.b2.h"></span></h4><p data-i18n="l0.b2.p"></p></div>
+      <div class="box principle"><h4><span class="icon gray">&#128260;</span><span data-i18n="l0.b3.h"></span></h4><p data-i18n="l0.b3.p"></p></div>
+    </div>
+  </div>
+
+  <div class="arrow-row">&#8595;</div>
+
+  <div class="layer">
+    <div class="layer-label" data-i18n="l1.label"></div>
+    <div class="layer-sub" data-i18n="l1.sub"></div>
+    <div class="row cols3">
+      <div class="box step"><h4><span class="icon green">1</span><span data-i18n="l1.b1.h"></span></h4><p data-i18n="l1.b1.p"></p></div>
+      <div class="box step"><h4><span class="icon green">2</span><span data-i18n="l1.b2.h"></span></h4><p data-i18n="l1.b2.p"></p></div>
+      <div class="box step"><h4><span class="icon green">3</span><span data-i18n="l1.b3.h"></span></h4><p data-i18n="l1.b3.p"></p></div>
+    </div>
+    <div class="row cols3" style="margin-top:14px;">
+      <div class="box step"><h4><span class="icon green">4</span><span data-i18n="l1.b4.h"></span></h4><p data-i18n="l1.b4.p"></p></div>
+      <div class="box step"><h4><span class="icon green">5</span><span data-i18n="l1.b5.h"></span></h4><p data-i18n="l1.b5.p"></p></div>
+      <div class="box step"><h4><span class="icon green">6</span><span data-i18n="l1.b6.h"></span></h4><p data-i18n="l1.b6.p"></p></div>
+    </div>
+  </div>
+
+  <div class="arrow-row">&#8595;</div>
+
+  <div class="layer">
+    <div class="layer-label" data-i18n="l2.label"></div>
+    <div class="layer-sub" data-i18n="l2.sub"></div>
+    <div class="row cols2">
+      <div class="box risk"><h4><span class="icon blue">&#128101;</span><span data-i18n="l2.b1.h"></span></h4><p data-i18n="l2.b1.p"></p></div>
+      <div class="box risk"><h4><span class="icon blue">&#127942;</span><span data-i18n="l2.b2.h"></span></h4><p data-i18n="l2.b2.p"></p></div>
+    </div>
+    <div class="row cols2" style="margin-top:14px;">
+      <div class="box risk"><h4><span class="icon blue">&#128200;</span><span data-i18n="l2.b3.h"></span></h4><p data-i18n="l2.b3.p"></p></div>
+      <div class="box risk"><h4><span class="icon blue">&#128176;</span><span data-i18n="l2.b4.h"></span></h4><p data-i18n="l2.b4.p"></p></div>
+    </div>
+  </div>
+
+  <div class="arrow-row">&#8595;</div>
+
+  <div class="layer">
+    <div class="layer-label" data-i18n="l3.label"></div>
+    <div class="layer-sub" data-i18n="l3.sub"></div>
+    <div class="row cols2">
+      <div class="box target"><h4><span class="rank-badge">1</span><span data-i18n="l3.b1.h"></span></h4><p data-i18n="l3.b1.p"></p></div>
+      <div class="box target"><h4><span class="rank-badge">2</span><span data-i18n="l3.b2.h"></span></h4><p data-i18n="l3.b2.p"></p></div>
+    </div>
+    <div class="row cols2" style="margin-top:14px;">
+      <div class="box later"><h4><span class="rank-badge">3</span><span data-i18n="l3.b3.h"></span></h4><p data-i18n="l3.b3.p"></p></div>
+      <div class="box later"><h4><span class="rank-badge">4</span><span data-i18n="l3.b4.h"></span></h4><p data-i18n="l3.b4.p"></p></div>
+    </div>
+  </div>
+
+  <div class="side-note">
+    <h3 data-i18n="side.title"></h3>
+    <div class="side-grid">
+      <div class="side-item"><strong data-i18n="side.i1.h"></strong><span data-i18n="side.i1.p"></span></div>
+      <div class="side-item"><strong data-i18n="side.i2.h"></strong><span data-i18n="side.i2.p"></span></div>
+      <div class="side-item"><strong data-i18n="side.i3.h"></strong><span data-i18n="side.i3.p"></span></div>
+      <div class="side-item"><strong data-i18n="side.i4.h"></strong><span data-i18n="side.i4.p"></span></div>
+    </div>
+  </div>
+
+  <footer data-i18n="footer"></footer>
+</div>
+
+<script>
+var translations = {
+  en: {
+    h1: "Vero Italiano - MVP &amp; Go-to-Market Strategy",
+    subtitle: "How we are thinking about proving this out with the least amount of engineering and the least amount of risk: the narrowest thing that can validate real willingness to pay, one concierge pilot at a time.",
+
+    "l0.label": "How we focus (lean startup)",
+    "l0.b1.h": "Narrowest possible slice",
+    "l0.b1.p": "One product category with the richest fraud evidence already public (San Marzano tomatoes or DOP olive oil), one importer, one or two of their producers. Not the whole platform, not every category, not every evidence stream.",
+    "l0.b2.h": "Concierge MVP, not automation",
+    "l0.b2.p": "Where the pipeline is not yet built (OCR, satellite modeling), we do the reconciliation manually behind the scenes. The importer experiences a real answer, flagged or confirmed, not whether a human or a model produced it.",
+    "l0.b3.h": "Validate demand before building",
+    "l0.b3.p": "The point of the pilot is to test willingness to pay and real pricing before any further engineering investment in the harder automation. Learn, then build, not the other way around.",
+
+    "l1.label": "MVP process: path to the first paying customer",
+    "l1.sub": "The sequence, in order. Steps 2 and 3 run in parallel so the plan is never blocked on a single relationship.",
+    "l1.b1.h": "Pick the category and outreach list",
+    "l1.b1.p": "San Marzano tomatoes or DOP olive oil, given the depth of existing public fraud documentation to use in sales conversations. Compile three to five specialty US DOP/IGP importers to approach.",
+    "l1.b2.h": "Offer a free or discounted pilot",
+    "l1.b2.p": "One flagship SKU, certified at no or low cost, in exchange for being a named reference and case study once the pilot succeeds.",
+    "l1.b3.h": "Run the pilot as concierge",
+    "l1.b3.p": "Manually validate documents, manually cross-check the DOP/IGP registry, manually pull whatever satellite/agronomic signal is feasible. Present a real certification level and a real discrepancy check.",
+    "l1.b4.h": "Open one consortium conversation",
+    "l1.b4.p": "Parmigiano Reggiano or San Marzano, framed as \"we would like your input on the validation criteria,\" not a sales pitch. A credibility relationship, not a revenue one, at this stage.",
+    "l1.b5.h": "Convert to paid, set real pricing",
+    "l1.b5.p": "Once the certification has clearly demonstrated value, use the importer's actual reaction to set the price point, anchored against what they currently pay for third-party inspection (SGS, Bureau Veritas-style audits).",
+    "l1.b6.h": "Use proof points for the next round",
+    "l1.b6.p": "The first paying customer and the consortium relationship become the case for approaching the next, harder segment, a live customer to point to, not just a framework document.",
+
+    "l2.label": "How we de-risk it",
+    "l2.sub": "No single point of failure: the direct-outreach path never depends on any one warm intro or channel landing.",
+    "l2.b1.h": "Direct outreach is the backstop",
+    "l2.b1.p": "Approaching specialty US DOP/IGP importers directly does not require any investor introduction to work, and proceeds regardless of how the warm-intro channel lands.",
+    "l2.b2.h": "Credibility track runs alongside, not instead",
+    "l2.b2.p": "The consortium conversation is a separate, parallel track from the paid pilot. It de-risks the sales narrative (\"developed in coordination with X\") without being on the critical path to revenue.",
+    "l2.b3.h": "Novagria is a ladder, not one bet",
+    "l2.b3.p": "Mutti first (a live, public anti-fraud narrative), with a two to three week decision window and no pause on direct outreach while waiting. If it stalls: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallel, each a fallback rather than a dependency.",
+    "l2.b4.h": "Multi-source reconciliation is the product-level derisking",
+    "l2.b4.p": "A single physical mark has already been defeated in this industry (the Prosciutto di Parma fire-brand forgery case). Cross-checking documents against independent satellite/agronomic evidence, and at the premium tier, lab testing, means a counterfeiter has to beat multiple independent streams at once, not just one.",
+
+    "l3.label": "Who we target, and in what order",
+    "l3.sub": "Ranked by who is realistically easiest to close first, not just who has the most at stake. Groups 1 and 2 are the current focus; 3 and 4 come later.",
+    "l3.b1.h": "Specialty DOP/IGP importers (the beachhead)",
+    "l3.b1.p": "Mid-size US importers whose entire brand is authenticity (Parmigiano Reggiano, San Marzano, DOP olive oil, cured meats). Most existential exposure of any commercial actor and no scale to absorb a scandal. Most likely to say yes to a pilot quickly, since verification extends what they already sell themselves on.",
+    "l3.b2.h": "DOP/IGP consortiums (a partner, not a first customer)",
+    "l3.b2.p": "Parmigiano Reggiano, San Marzano dell'Agro Sarnese-Nocerino, olive oil DOPs. Slow, consensus-driven sales cycle, but a pilot endorsement is worth more in credibility than ten importer contracts: \"developed in coordination with X\" versus \"a startup's opinion.\"",
+    "l3.b3.h": "Importers and retailers adjacent to a scandal",
+    "l3.b3.p": "Competitors of companies already caught (a San Marzano importer competing with Cento, a retailer competing with Coles, Aldi or Woolworths). They can make a proactive positive claim right when their category is under scrutiny, without admitting their own exposure. Easier than approaching the accused directly, but a later-stage move once there is a live customer to point to.",
+    "l3.b4.h": "Companies actually named in an active scandal",
+    "l3.b4.p": "Cento, Simplot/Leggo's, Coles, Aldi. Most to lose narratively but poor first customers: their current posture is to dispute and deny, so adopting third-party verification now would read as an admission. Approach later, from a position of independent traction, not \"you got caught.\"",
+
+    "side.title": "Why willingness to pay is the real question here",
+    "side.i1.h": "Pricing anchor",
+    "side.i1.p": "Compare against what importers already pay for third-party inspection (SGS, Bureau Veritas-style audits) rather than inventing a price in a vacuum.",
+    "side.i2.h": "Real reaction, not a survey",
+    "side.i2.p": "The pilot is designed to convert to paid on real demonstrated value, so pricing comes from an actual buying decision, not a stated preference.",
+    "side.i3.h": "Flexible fee structure",
+    "side.i3.p": "Billing logic supports either a flat fee per verified transaction or a basis-point fee on invoice value, kept open to test whichever lands better in real conversations.",
+    "side.i4.h": "Awareness comes after proof",
+    "side.i4.p": "Press and thought-leadership outreach launches once there is a real customer or consortium relationship to point to, since credibility compounds faster with proof than with promises.",
+
+    footer: "Internal working reference, Vero Italiano MVP and go-to-market strategy. Not a finalized business plan."
+  },
+  it: {
+    h1: "Vero Italiano - Strategia MVP e Go-to-Market",
+    subtitle: "Come stiamo pensando di dimostrare tutto questo con il minimo sforzo tecnico e il minimo rischio: la cosa piu ristretta possibile che possa validare una reale disponibilita a pagare, un pilota concierge alla volta.",
+
+    "l0.label": "Come ci concentriamo (lean startup)",
+    "l0.b1.h": "La fetta piu stretta possibile",
+    "l0.b1.p": "Una categoria di prodotto con la base di evidenze di frode gia piu ricca e pubblica (pomodori San Marzano o olio DOP), un importatore, uno o due dei loro produttori. Non l'intera piattaforma, non ogni categoria, non ogni fonte di evidenza.",
+    "l0.b2.h": "MVP concierge, non automazione",
+    "l0.b2.p": "Dove la pipeline non e ancora costruita (OCR, modellazione satellitare), la riconciliazione viene fatta manualmente dietro le quinte. L'importatore riceve una risposta reale, segnalata o confermata, senza sapere se e stata prodotta da una persona o da un modello.",
+    "l0.b3.h": "Validare la domanda prima di costruire",
+    "l0.b3.p": "Lo scopo del pilota e testare la disponibilita a pagare e un prezzo reale prima di ulteriori investimenti tecnici nell'automazione piu complessa. Prima imparare, poi costruire, non il contrario.",
+
+    "l1.label": "Processo MVP: il percorso verso il primo cliente pagante",
+    "l1.sub": "La sequenza, in ordine. I passi 2 e 3 procedono in parallelo cosi che il piano non dipenda mai da una sola relazione.",
+    "l1.b1.h": "Scegliere la categoria e la lista di contatti",
+    "l1.b1.p": "Pomodori San Marzano o olio DOP, data la profondita della documentazione pubblica sulle frodi gia disponibile per le conversazioni di vendita. Compilare tre-cinque importatori specializzati DOP/IGP negli Stati Uniti da contattare.",
+    "l1.b2.h": "Offrire un pilota gratuito o scontato",
+    "l1.b2.p": "Una SKU di punta, certificata a costo nullo o basso, in cambio di essere citati come riferimento e caso studio una volta che il pilota ha successo.",
+    "l1.b3.h": "Condurre il pilota in modalita concierge",
+    "l1.b3.p": "Validare manualmente i documenti, verificare manualmente il registro DOP/IGP, raccogliere manualmente qualsiasi segnale satellitare/agronomico fattibile. Presentare un livello di certificazione reale e una verifica reale delle discrepanze.",
+    "l1.b4.h": "Avviare una conversazione con un consorzio",
+    "l1.b4.p": "Parmigiano Reggiano o San Marzano, presentata come \"vorremmo il vostro contributo sui criteri di validazione,\" non come proposta di vendita. In questa fase e una relazione di credibilita, non di fatturato.",
+    "l1.b5.h": "Convertire in cliente pagante, fissare il prezzo reale",
+    "l1.b5.p": "Una volta che la certificazione ha chiaramente dimostrato valore, usare la reazione reale dell'importatore per fissare il prezzo, ancorandolo a quanto gia pagano per ispezioni di terze parti (audit in stile SGS, Bureau Veritas).",
+    "l1.b6.h": "Usare i risultati come prova per il round successivo",
+    "l1.b6.p": "Il primo cliente pagante e la relazione con il consorzio diventano l'argomento per avvicinare il segmento successivo, piu difficile: un cliente reale a cui fare riferimento, non solo un documento di framework.",
+
+    "l2.label": "Come mitighiamo il rischio",
+    "l2.sub": "Nessun punto singolo di fallimento: il percorso di contatto diretto non dipende mai da una singola presentazione o canale.",
+    "l2.b1.h": "Il contatto diretto e la rete di sicurezza",
+    "l2.b1.p": "Contattare direttamente gli importatori specializzati DOP/IGP negli Stati Uniti non richiede alcuna presentazione da investitori per funzionare, e procede indipendentemente dall'esito del canale di presentazione.",
+    "l2.b2.h": "Il percorso di credibilita corre in parallelo, non in sostituzione",
+    "l2.b2.p": "La conversazione con il consorzio e un binario separato e parallelo rispetto al pilota pagante. Riduce il rischio della narrativa di vendita (\"sviluppato in coordinamento con X\") senza essere sul percorso critico verso il fatturato.",
+    "l2.b3.h": "Novagria e una scala, non una singola scommessa",
+    "l2.b3.p": "Prima Mutti (una narrativa anti-frode gia pubblica e attiva), con una finestra decisionale di due-tre settimane e nessuna pausa nel contatto diretto durante l'attesa. Se si blocca: Spreafico, Regione Emilia-Romagna / ART-ER, CA Italia, GELLIFY in parallelo, ciascuno un'alternativa e non una dipendenza.",
+    "l2.b4.h": "La riconciliazione multi-fonte e la mitigazione a livello di prodotto",
+    "l2.b4.p": "Un singolo marchio fisico e gia stato aggirato in questo settore (il caso di falsificazione del marchio a fuoco del Prosciutto di Parma). Incrociare i documenti con evidenze satellitari/agronomiche indipendenti, e al livello premium con test di laboratorio, significa che un contraffattore deve battere piu fonti indipendenti insieme, non solo una.",
+
+    "l3.label": "Chi puntiamo, e in che ordine",
+    "l3.sub": "Classificati in base a chi e realisticamente piu facile da chiudere per primo, non solo a chi ha piu in gioco. I gruppi 1 e 2 sono il focus attuale; 3 e 4 arrivano dopo.",
+    "l3.b1.h": "Importatori specializzati DOP/IGP (la testa di ponte)",
+    "l3.b1.p": "Importatori statunitensi di medie dimensioni il cui intero brand e l'autenticita (Parmigiano Reggiano, San Marzano, olio DOP, salumi). L'esposizione piu esistenziale di qualsiasi attore commerciale e nessuna scala per assorbire uno scandalo. I piu propensi a dire si a un pilota rapidamente, poiche la verifica estende cio su cui gia si vendono.",
+    "l3.b2.h": "Consorzi DOP/IGP (un partner, non un primo cliente)",
+    "l3.b2.p": "Parmigiano Reggiano, San Marzano dell'Agro Sarnese-Nocerino, DOP dell'olio. Ciclo di vendita lento e basato sul consenso, ma un'approvazione pilota vale piu in credibilita di dieci contratti di importatori: \"sviluppato in coordinamento con X\" contro \"l'opinione di una startup.\"",
+    "l3.b3.h": "Importatori e rivenditori adiacenti a uno scandalo",
+    "l3.b3.p": "Concorrenti di aziende gia colte in fallo (un importatore di San Marzano in concorrenza con Cento, un rivenditore in concorrenza con Coles, Aldi o Woolworths). Possono fare un'affermazione positiva e proattiva proprio mentre la loro categoria e sotto esame, senza ammettere la propria esposizione. Piu facile che avvicinare direttamente gli accusati, ma una mossa di fase successiva una volta che c'e un cliente reale a cui fare riferimento.",
+    "l3.b4.h": "Aziende effettivamente nominate in uno scandalo attivo",
+    "l3.b4.p": "Cento, Simplot/Leggo's, Coles, Aldi. Le piu esposte a livello narrativo ma pessimi primi clienti: la loro posizione attuale e contestare e negare, quindi adottare ora una verifica di terze parti suonerebbe come un'ammissione. Avvicinarle piu avanti, da una posizione di trazione indipendente, non \"vi hanno scoperti.\"",
+
+    "side.title": "Perche la disponibilita a pagare e la vera domanda qui",
+    "side.i1.h": "Ancoraggio del prezzo",
+    "side.i1.p": "Confrontare con quanto gli importatori gia pagano per ispezioni di terze parti (audit in stile SGS, Bureau Veritas) anziche inventare un prezzo nel vuoto.",
+    "side.i2.h": "Reazione reale, non un sondaggio",
+    "side.i2.p": "Il pilota e pensato per convertirsi in pagante sulla base di un valore reale dimostrato, quindi il prezzo nasce da una decisione d'acquisto effettiva, non da una preferenza dichiarata.",
+    "side.i3.h": "Struttura tariffaria flessibile",
+    "side.i3.p": "La logica di fatturazione supporta sia una commissione fissa per transazione verificata sia una commissione in punti base sul valore della fattura, lasciata aperta per testare quale funziona meglio nelle conversazioni reali.",
+    "side.i4.h": "La visibilita arriva dopo la prova",
+    "side.i4.p": "Il lancio verso stampa e thought leadership avviene una volta che c'e un cliente reale o una relazione con un consorzio a cui fare riferimento, poiche la credibilita si costruisce piu velocemente con le prove che con le promesse.",
+
+    footer: "Riferimento di lavoro interno, strategia MVP e go-to-market di Vero Italiano. Non e un piano aziendale definitivo."
+  }
+};
+
+function setLang(lang){
+  var dict = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined){
+      el.innerHTML = dict[key];
+    }
+  });
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  document.documentElement.setAttribute('lang', lang);
+}
+setLang('en');
+
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('theme-toggle').innerHTML = theme === 'dark' ? '&#9728;&#65039;' : '&#127769;';
+  try{ localStorage.setItem('vi-theme', theme); }catch(e){}
+}
+function toggleTheme(){
+  var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+(function(){
+  var saved = 'light';
+  try{ saved = localStorage.getItem('vi-theme') || 'light'; }catch(e){}
+  applyTheme(saved);
+})();
+</script>
+</body>
+</html>
